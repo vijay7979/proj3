@@ -1,0 +1,33 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+	Orders
+{% endblock %}
+
+{% block body %}
+	<h2>Order {{ order_id }} successfully created!</h2>
+    <ol>
+        {% if pizza %}
+            <li>{{ pizza }}</li>
+            <br>
+        {% endif %}
+        {% if sub %}
+            <li>{{ sub }}</li>
+            <br>
+        {% endif %}
+        {% if pasta %}
+            <li>{{ pasta }}</li>
+            <br>
+        {% endif %}
+        {% if salad %}
+            <li>{{ salad }}</li>
+        <br>
+        {% endif %}
+        {% if dplatter %}
+            <li>{{ dplatter }}</li>
+        <br>
+        {% endif %}
+    </ol>
+    Item(s) added to order!
+    <br><br>
+{% endblock %}

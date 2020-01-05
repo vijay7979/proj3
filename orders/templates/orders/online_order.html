@@ -1,0 +1,100 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+	Orders
+{% endblock %}
+
+{% block body %}
+    <!-- rendering and submitting order input from form -->
+	<form action="{% url 'online_order' %}" method="post" class="form-horizontal" role="form">
+		{% csrf_token %}
+		<h2>Online Orders</h2>
+		<div class="form-group row">
+			<label for="pizza_category" class="col-lg-2 control-label">Choose Pizza</label>
+			<div class="col-lg-6">
+				<select type="list" class="form-control" name="pz" id="pz" placeholder="No selection">
+					<option value=0>No selection</option>
+					{% for pizza in pizzas %}
+						<option value="{{ pizza.id }}">{{ pizza }}</option>
+					{% endfor %}
+				</select>
+				<input type="number" class="form-control" min="0" name="qty_sub" placeholder="0">
+			</div>
+			<br>
+		</div>
+		<div class="form-group row">
+			<label for="topping_category" class="col-lg-2 control-label">Choose Topping</label>
+			<div class="col-lg-6">
+				<select multiple type="list" class="form-control" name="tpg" id="tpg">
+					{% for topping in toppings %}
+						<option value="{{ topping.id }}">{{ topping.topping }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<br>
+		</div>
+		<div class="form-group row">
+			<label for="sub_category" class="col-lg-2 control-label">Choose Sub</label>
+			<div class="col-lg-6">
+				<select type="list" class="form-control" name="sb" id="sb" placeholder="No Selection">
+					<option value=0>No selection</option>
+					{% for sub in subs %}
+						<option value="{{ sub.id }}">{{ sub.category }}</option>
+					{% endfor %}
+				</select>
+				<input type="number" class="form-control" min="0" name="qty_sub" placeholder="0">
+			</div>
+			<br>
+		</div>
+		<div class="form-group row">
+			<label for="addition_category" class="col-lg-2 control-label">Choose Addition</label>
+			<div class="col-lg-6">
+				<select multiple type="list" class="form-control" name="adtn" id="adtn">
+					{% for addition in additions %}
+						<option value="{{ addition.id }}">{{ addition.category }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<br>
+		</div>
+		<div class="form-group row">
+			<label for="pasta_category" class="col-lg-2 control-label">Choose Pasta</label>
+			<div class="col-lg-6">
+				<select type="list" class="form-control" name="ps" id="ps" placeholder="No Selection">
+					<option value=0>No selection</option>
+					{% for pasta in pastas %}
+						<option value="{{ pasta.id }}">{{ pasta.category }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<br>
+		</div>
+		<div class="form-group row">
+			<label for="salad_category" class="col-lg-2 control-label">Choose Salad</label>
+			<div class="col-lg-6">
+				<select type="list" class="form-control" name="sld" id="sld" placeholder="No Selection">
+					<option value=0>No selection</option>
+					{% for salad in salads %}
+						<option value="{{ salad.id }}">{{ salad.category }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<br>
+		</div>
+		<div class="form-group row">
+			<label for="dplatter_category" class="col-lg-2 control-label">Choose Dinner Platter</label>
+			<div class="col-lg-6">
+				<select type="list" class="form-control" name="dpl" id="dpl" placeholder="No Selection">
+					<option value=0>No selection</option>
+					{% for dplatter in dplatters %}
+						<option value="{{ dplatter.id }}">{{ dplatter.category }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<br>
+			<div>
+				<input type="submit" value="Add to Order"/>
+			</div>
+		</div>
+	</form>
+{% endblock %}

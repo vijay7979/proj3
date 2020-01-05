@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="{% static 'orders/styles.css' %}"/>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				{% if user.is_authenticated %}
+				<li>
+					<form class="logout-link" action="{% url 'logout' %}" method="post">
+						{% csrf_token %}
+						<button type="submit">Logout</button>
+					</form>
+				</li> 
+				<li><a href="{% url 'create_order' %}"><button>New Order</button></a></li>
+				{% else %}
+				<li><a href="{% url 'login' %}">Login</a></li>
+				{% endif %}
+			</ul>
+		</nav>
+		{% block body %}
+		{% endblock %}
+	</body>
+</html>

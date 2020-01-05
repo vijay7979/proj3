@@ -1,0 +1,76 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+	Orders
+{% endblock %}
+
+{% block body %}
+	(this line for testing purpose;remove later):{{ tprice }}
+	<h2>Order {{ order.id }}</h2>
+	<!-- print only the ordered items -->
+	<ul>
+	<p>
+	{% if order.pizza != None %}
+		<li>Pizza: {{ order.pizza.category }} ({{ order.pizza.size }})</li>
+	{% endif %}
+	{% if order.pizza.num_toppings != 0 %}
+		Number of toppings: {{ order.pizza.num_toppings }}
+	<br>
+		<ul>
+		{% for topping in order.toppings.all %}
+			<li>{{ topping }}</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+	</p>
+	<p>
+	{% if order.sub != None %}
+		<li>Sub: {{ order.sub.category }} ({{ order.sub.size }})</li>
+	{% endif %}
+	{% if num_additions != 0 %}
+		Number of Addition(s): {{ num_additions }}
+	<ul>
+	{% for addition in order.additions.all %}
+		<li>{{ addition }}</li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+	</p>
+	{% if order.pasta != None %}
+		<li>Pasta: {{ order.pasta.category }}</li>
+		<br>
+	{% endif %}
+	{% if order.salad != None %}
+		<li>Salad: {{ order.salad.category }}</li>
+		<br>
+	{% endif %}
+	{% if order.dplatter != None %}
+		<li>Dinner Platter: {{ order.dplatter.category }} ({{ order.dplatter.size }})</li>
+	{% endif %}
+	</ul>
+	<hr>
+	<b>Pricing Summary</b>
+	<ol>
+		{% if price.0.pizza_price != 0 %}
+			<li>Pizza: {{ price.0.pizza_price }}</li>
+		{% endif %}
+		{% if price.0.sub_price != 0 %}
+			<li>Sub: {{ price.0.sub_price }}</li>
+		{% endif %}
+		{% if price.0.addition_price != 0 %}
+			<li>Sub Additions: {{ price.0.addition_price }}</li>
+		{% endif %}
+		{% if price.0.pasta_price != 0 %}
+			<li>Pasta: {{ price.0.pasta_price }}</li>
+		{% endif %}
+		{% if price.0.salad_price != 0 %}
+			<li>Salad: {{ price.0.salad_price }}</li>
+		{% endif %}
+		{% if price.0.dplatter_price != 0 %}
+			<li>Dinner Platter: {{ price.0.dplatter_price }}</li>
+		{% endif %}
+	</ol>	
+	Total Price : {{ total_price|floatformat:2 }}
+	<br><br>
+	<a href="{% url 'order_index' %}">Back to full listing</a>
+{% endblock %}

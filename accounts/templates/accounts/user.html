@@ -1,0 +1,14 @@
+{% extends "accounts/base.html" %}
+
+{% block title %}
+	User
+{% endblock %}
+
+{% block body %}
+	<h1>Hello {{ user.first_name }}</h1>
+
+	<ul>
+		<li>logged in as: {{ user.username }}</li>
+		<li>last_name: {{user.last_name}}</li>
+	</ul>
+{% endblock %}

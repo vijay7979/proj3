@@ -1,0 +1,37 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+    Success!
+{% endblock %}
+
+{% block body %}
+    <h1>Success!</h1>
+
+    Order ID : {{ order.id }}
+    <br><br>
+    <ol>
+        {% if order.pizza %}
+            <li>{{ order.pizza }}</li>
+            <br>
+        {% endif %}
+        {% if order.sub %}
+            <li>{{ order.sub }}</li>
+            <br>
+        {% endif %}
+        {% if order.pasta %}
+            <li>{{ order.pasta }}</li>
+            <br>
+        {% endif %}
+        {% if order.salad %}
+        {{ order.salad }}
+        <br>
+        {% endif %}
+        <br>
+        {% if order.dplatter %}
+        {{ order.dplatter }}
+        <br>
+        {% endif %}
+        <br>
+    </ol>
+    You have successfully created your order!
+{% endblock %}

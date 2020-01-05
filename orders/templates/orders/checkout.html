@@ -1,0 +1,32 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+	checkout
+{% endblock %}
+
+{% block body %}
+	Checkout!
+	<br>
+	<ol>
+        {% if order.pizza %}
+            <li>{{ order.pizza }}</li>
+            <br>
+        {% endif %}
+        {% if order.sub %}
+            <li>{{ order.sub }}</li>
+            <br>
+        {% endif %}
+        {% if order.pasta %}
+            <li>{{ order.pasta }}</li>
+            <br>
+        {% endif %}
+        {% if order.salad %}
+            <li>{{ order.salad }}</li>
+        <br>
+        {% endif %}
+        {% if order.dplatter %}
+            <li>{{ order.dplatter }}</li>
+        {% endif %}
+    </ol>
+    	Total Price: {{ total_price }}
+{% endblock %}

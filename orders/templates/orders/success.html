@@ -1,0 +1,15 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+    Success!
+{% endblock %}
+
+{% block body %}
+    <h1>Success!</h1>
+
+    Order for:
+    {{ order.id }}
+    {{ order.pasta }}
+
+    You have successfully created your order!
+{% endblock %}
