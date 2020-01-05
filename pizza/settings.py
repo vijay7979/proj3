@@ -89,16 +89,6 @@ DATABASES = {
         'HOST': 'ec2-23-21-248-1.compute-1.amazonaws.com',
         'PORT': '5432'
     },
-    # ('postgresql://postgres:clampett@localhost:5432/postgres')
-    # 'default' : {    
-    #     # local db
-    #     'ENGINE':'django.db.backends.postgresql',
-    #     'NAME': 'postgres',
-    #     'USER': 'postgres',
-    #     'PASSWORD': 'clampett',
-    #     'HOST': 'localhost',
-    #     'PORT': '5432'
-    # },
     # 'standard' : {
     #     # standard db
     #     'ENGINE': 'django.db.backends.sqlite3',
