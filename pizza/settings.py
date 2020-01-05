@@ -80,25 +80,25 @@ WSGI_APPLICATION = 'pizza.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        # heroku db
-        'ENGINE':'django.db.backends.postgresql',
-        'NAME': 'dh3a279pnksep',
-        'USER': 'omzwbdjwewvsca',
-        'PASSWORD': '67d1694e4baf41141d1fcd6c2295c8d7355b5b7c9a6a92f043a9a5f63388d3b9',
-        'HOST': 'ec2-23-21-248-1.compute-1.amazonaws.com',
-        'PORT': '5432'
-    },
-    # ('postgresql://postgres:clampett@localhost:5432/postgres')
-    # 'default' : {    
-    #     # local db
+    # 'default': {
+    #     # heroku db
     #     'ENGINE':'django.db.backends.postgresql',
-    #     'NAME': 'postgres',
-    #     'USER': 'postgres',
-    #     'PASSWORD': 'clampett',
-    #     'HOST': 'localhost',
+    #     'NAME': 'dh3a279pnksep',
+    #     'USER': 'omzwbdjwewvsca',
+    #     'PASSWORD': '67d1694e4baf41141d1fcd6c2295c8d7355b5b7c9a6a92f043a9a5f63388d3b9',
+    #     'HOST': 'ec2-23-21-248-1.compute-1.amazonaws.com',
     #     'PORT': '5432'
     # },
+    # ('postgresql://postgres:clampett@localhost:5432/postgres')
+    'default' : {    
+        # local db
+        'ENGINE':'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'clampett',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    },
     # 'standard' : {
     #     # standard db
     #     'ENGINE': 'django.db.backends.sqlite3',
