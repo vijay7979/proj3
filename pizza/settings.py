@@ -34,6 +34,7 @@ INSTALLED_APPS = [
 
     #my apps
     'orders.apps.OrdersConfig',
+    'shop.apps.ShopConfig',
     'accounts.apps.AccountsConfig',
 
     #django apps
@@ -89,6 +90,16 @@ DATABASES = {
         'HOST': 'ec2-23-21-248-1.compute-1.amazonaws.com',
         'PORT': '5432'
     },
+    # ('postgresql://postgres:clampett@localhost:5432/postgres')
+    # 'default' : {    
+    #     # local db
+    #     'ENGINE':'django.db.backends.postgresql',
+    #     'NAME': 'postgres',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'clampett',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432'
+    # },
     # 'standard' : {
     #     # standard db
     #     'ENGINE': 'django.db.backends.sqlite3',
@@ -133,6 +144,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# this is the base url that serves media files uploaded by users
+MEDIA_URL = '/media/'
+
+# this is the local path where the image files reside, which we build by 
+# dynamically prepending the BASE_DIR variable.
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # testing if this solves @login_required aftermath
 #LOGIN_URL = 'login'
