@@ -21,9 +21,7 @@ def product_detail(request, id, slug):
 	# *arg being id. slug and available being **kwargs)
 	# we can get the instance just with id. slug is included to build SEO-friendly URLs for products
 	# try-except would be the alternative approach to get_object_or_404
-	print(slug)
 	product = get_object_or_404(Product, id=id, slug=slug, available=True)
-	print(product)
 
 	# retrieving product with id only
 	#product = products.objects.filter(id)

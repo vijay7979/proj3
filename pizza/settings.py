@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'shop.apps.ShopConfig',
     'accounts.apps.AccountsConfig',
+    'cart.apps.CartConfig',
 
     #django apps
     'django.contrib.admin',
@@ -152,5 +153,6 @@ MEDIA_URL = '/media/'
 # dynamically prepending the BASE_DIR variable.
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-# testing if this solves @login_required aftermath
-#LOGIN_URL = 'login'
+# cart session ID
+CART_SESSION_ID = 'cart'
+
