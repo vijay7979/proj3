@@ -29,7 +29,7 @@ class Cart(object):
 		self.save()
 
 		# notes
-		# product_id is used as key in cart's content dic. str because django uses
+		# product_id is used as key in cart's content dic str because django uses
 		# JSON to serialize session data, and JSON only allows str key names.
 
 	def save(self):
@@ -65,22 +65,22 @@ class Cart(object):
 			item['total_price'] = item['price'] * item['quantity']
 			yield item
 
-		# using dunderscore as we're creating a custom len function
-		def __len__(self):
-			"""
-			count all items in the cart
-			"""
-			return sum(item['quantity'] for item in self.cart.values())
+	# using dunderscore as we're creating a custom len function
+	def __len__(self):
+		"""
+		count all items in the cart
+		"""
+		return sum(item['quantity'] for item in self.cart.values())
 
-		# calculate the total cost of the items in the cart
-		def get_total_price(self):
-			return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
+	# calculate the total cost of the items in the cart
+	def get_total_price(self):
+		return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
 
-		# clear the cart session
-		def clear(self):
-			# remove cart from session
-			del self.session(settings.CART_SESSION_ID)
-			self.save()
+	# clear the cart session
+	def clear(self):
+		# remove cart from session
+		del self.session[settings.CART_SESSION_ID]
+		self.save()
 
 
 

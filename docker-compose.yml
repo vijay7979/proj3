@@ -7,17 +7,17 @@ services:
         build: .
         command: python3 manage.py migrate
         volumes:
-             -.:\Users\v_vj\Documents\cs50\p3\proj3
+            - .:/code
         depends_on:
             - db
     web:
         build: .
         command: python3 manage.py runserver 0.0.0.0:8000
         volumes:
-             -.:\Users\v_vj\Documents\cs50\p3\proj3
+            - .:/code
 
         # take port 8000 running inside my container and map it to port 8000 on my computer
-        port:
+        ports:
              - "8000:8000"
              
         depends_on:

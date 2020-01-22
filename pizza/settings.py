@@ -32,12 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
 
-    #my apps
-    'orders.apps.OrdersConfig',
-    'shop.apps.ShopConfig',
-    'accounts.apps.AccountsConfig',
-    'cart.apps.CartConfig',
-
     #django apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,6 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #my apps
+    'orders.apps.OrdersConfig',
+    'shop.apps.ShopConfig',
+    'accounts.apps.AccountsConfig',
+    'cart.apps.CartConfig',
+    'shoporders.apps.ShopordersConfig'
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -150,7 +152,8 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 # this is the local path where the image files reside, which we build by 
-# dynamically prepending the BASE_DIR variable.
+# dynamically prepending the BASE_DIR variable. BASE_DIR grabs the base 
+# directory ie pizza and then looks in media.
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # cart session ID

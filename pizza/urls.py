@@ -21,11 +21,13 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("admin/", admin.site.urls),
 	path("", include("accounts.urls")), 
+    path("", include("cart.urls", namespace="cart")),
 	path("", include("orders.urls")),
 
     # application namspace was defined with the app_name variable in shop/urls.py
     path("", include("shop.urls", namespace="shop")),
 ]
-# IMPORTANT! only serve static files this way during development
+# IMPORTANT! serve static files this way only during development. In production, never 
+# serve static files with django as it'd be grossly inefficient. Use a service like AWS.
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
